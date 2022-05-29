@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<div class="container body-content"></div>
+<!--    <h1 th:text="${#strings.(title)}"></h1>-->
+<h1>Let's find Some Users!</h1>
+<form th:action="@{/searchUser/results}" method = "post">
+    <!--        <form th:action="">-->
+    <h2>Search by:</h2>
+
+    <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+    </p>
+
+    <p>
+        <label for="searchTerm">Keyword: </label>
+        <input type="text" name="searchTerm" id="searchTerm">
+    </p>
+
+    <input type="submit" value="Search" />
+</form>
+
+
+<hr />
+
+
+<table class="user-listing">
+    <tr th:each="user : ${users}">
+        <!--        <td><a th:href="'/users/view?userId=' ${user.id}" ></a></td>-->
+        <!--        <td><a th:href="@{/users/view/{id}(id=${user.id})}" ></a></td>-->
+
+        <td>
+            <p>
+                User ID:
+                <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.id}"></a>
+                <!--               th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>-->
+            </p>
+            <p>
+                User Name:
+                <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>
+            </p>
+            <!--        <p>-->
+            <!--            User Skills:-->
+            <!--            <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>-->
+            <!--        </p>-->
+
+        </td>
+        <!--        <td><a th:href="'user/view?userId=' +${user.id}" th:text="${user.userName}"></a></td>-->
+    </tr>
+</table>
+
+</body>
+</html>
