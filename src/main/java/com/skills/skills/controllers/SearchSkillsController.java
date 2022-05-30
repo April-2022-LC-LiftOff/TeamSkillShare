@@ -20,7 +20,7 @@ public class SearchSkillsController {
     static HashMap<String, String> columnChoices = new HashMap<>();
     public SearchSkillsController(){
         columnChoices.put("all", "All");
-        columnChoices.put("name", "Skill'sName");
+        columnChoices.put("name", "Skill's Name");
         columnChoices.put("categories name", "CatName");
     }
 

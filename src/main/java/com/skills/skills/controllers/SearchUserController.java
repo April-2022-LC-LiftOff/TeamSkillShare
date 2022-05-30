@@ -20,7 +20,7 @@ public class SearchUserController {
     static HashMap<String, String> columnChoices = new HashMap<>();
     public SearchUserController(){
         columnChoices.put("all", "All");
-        columnChoices.put("username", "UserName");
+       // columnChoices.put("username", "UserName");
         columnChoices.put("firstname", "FirstName");
         columnChoices.put("lastname", "LastName");
         columnChoices.put("skills", "Skills");

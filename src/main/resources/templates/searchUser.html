@@ -9,6 +9,11 @@
 
 <div class="container body-content"></div>
 <!--    <h1 th:text="${#strings.(title)}"></h1>-->
+
+<div>
+    <li class="nav-link"><a th:href="@{/users/profile}">Back to Profile</a></li>
+</div>
+
 <h1>Let's find Some Users!</h1>
 <form th:action="@{/searchUser/results}" method = "post">
     <!--        <form th:action="">-->
@@ -40,8 +45,6 @@
 
 <table class="user-listing">
     <tr th:each="user : ${users}">
-        <!--        <td><a th:href="'/users/view?userId=' ${user.id}" ></a></td>-->
-        <!--        <td><a th:href="@{/users/view/{id}(id=${user.id})}" ></a></td>-->
 
         <td>
             <p>
@@ -53,15 +56,49 @@
                 User Name:
                 <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>
             </p>
-            <!--        <p>-->
-            <!--            User Skills:-->
-            <!--            <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>-->
-            <!--        </p>-->
 
         </td>
-        <!--        <td><a th:href="'user/view?userId=' +${user.id}" th:text="${user.userName}"></a></td>-->
+
     </tr>
 </table>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        <td><a th:href="'/users/view?userId=' ${user.id}" ></a></td>-->
+<!--        <td><a th:href="@{/users/view/{id}(id=${user.id})}" ></a></td>-->
+
+<!--        <td><a th:href="'user/view?userId=' +${user.id}" th:text="${user.userName}"></a></td>-->
+
+<!--        <p>-->
+<!--            User Skills:-->
+<!--            <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>-->
+<!--        </p>-->
+
+
+
+
+<!--            <p>-->
+<!--                User UserName:-->
+<!--                <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${loginFormDTO.username}"></a>-->
+<!--                &lt;!&ndash;               th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>&ndash;&gt;-->
+<!--            </p>-->

@@ -9,6 +9,11 @@
 
 <div class="container body-content"></div>
 <!--    <h1 th:text="${#strings.(title)}"></h1>-->
+
+<div>
+    <li class="nav-link"><a th:href="@{/users/profile}">Back to Profile</a></li>
+</div>
+
 <h1>Let's find Some Skills!</h1>
 <form th:action="@{/searchSkill/results}" method = "post">
 
@@ -52,10 +57,6 @@
         </td>
     </tr>
 </table>
-
-</body>
-</html>
-
 
 </body>
 </html>

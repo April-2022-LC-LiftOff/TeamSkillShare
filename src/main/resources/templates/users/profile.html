@@ -8,6 +8,7 @@
     <p>Welcome, <span th:text="${user.username}"></span></p>
 
     <li class="nav-link"><a th:href="@{/users/view/{id}(id=${user.id})}">User Profile</a></li>
+
     <form method="post">
         <div class="form-group">
             <label>Filter By:
@@ -43,7 +44,7 @@
         <li class="nav-link"><a th:href="@{/skills/create/{id}(id=${user.id})}">Add Skill</a></li>
         <li class="nav-link"><a th:href="@{/skills/delete/{id}(id=${user.id})}">Remove Skill</a></li>
         <li class="nav-item"><a class="nav-link" href="/searchUser">SearchUser</a></li>
-        <li class="nav-item"><a class="nav-link" href="/searchUser">SearchSkill</a></li>
+        <li class="nav-item"><a class="nav-link" href="/searchSkill">SearchSkill</a></li>
 <!--        <li class="nav-link"><a th:href="/searchUser">SearchUser</a></li>-->
     </div>
 </main>

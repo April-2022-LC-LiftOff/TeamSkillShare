@@ -5,7 +5,9 @@
 
 </head>
 <body>
-<header th:replace="fragments :: header"></header>
+<!--<header th:replace="fragments :: header"></header>-->
+<div th:replace="fragments :: navbar"></div>
+
 <main>
     <form method="post" th:object="${user}">
 
@@ -21,6 +23,11 @@
         <p class="errors" th:errors="${user.zipCode}"></p>
         <input type="submit" value="Save Changes">
     </form>
+
+    <div>
+        <li class="nav-link"><a th:href="@{/users/profile}">Back to Profile</a></li>
+    </div>
+
 </main>
 
 </body>
