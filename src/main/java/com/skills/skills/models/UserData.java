@@ -58,8 +58,7 @@ public class UserData {
                 userResults.add(user);
             }else if(user.getUserProfile().getLastName().toLowerCase().contains(value.toLowerCase())){
                 userResults.add(user);
-            }
-            else if(user.getSkills().toString().toLowerCase().contains(value.toLowerCase())){
+            }else if(user.getSkills().toString().toLowerCase().contains(value.toLowerCase())){
                 userResults.add(user);
             }
         }

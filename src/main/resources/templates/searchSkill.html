@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<!--<header th:replace="fragments :: header"></header>-->
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container body-content"></div>
+<!--    <h1 th:text="${#strings.(title)}"></h1>-->
+<h1>Let's find Some Skills!</h1>
+<form th:action="@{/searchSkill/results}" method = "post">
+
+    <h2>Search by:</h2>
+
+    <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+    </p>
+
+    <p>
+        <label for="searchTerm">Keyword: </label>
+        <input type="text" name="searchTerm" id="searchTerm">
+    </p>
+
+    <input type="submit" value="Search" />
+</form>
+
+
+<hr />
+
+<table class="skill-listing">
+    <tr th:each="skill : ${skills}">
+        <td>
+            <p>
+                Skill ID:
+                <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${skill.id}"></a>
+            </p>
+            <p>
+                Skill CatName:
+                <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${skill.catName}"></a>
+            </p>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+</body>
+</html>
