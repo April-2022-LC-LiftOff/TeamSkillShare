@@ -16,6 +16,10 @@
             <th>Name</th>
             <td th:text="${user.userProfile.firstName} + '' + ${user.userProfile.lastName}"></td>
         </tr>
+        <tr>
+            <th>UserName</th>
+            <td th:text="${user.username"></td>
+        </tr>
         <tr >
             <th>Email</th>
             <td th:text="${user.userProfile.email}"></td>
@@ -28,6 +32,7 @@
         <tr >
             <th>ZipCode</th>
             <td th:text="${user.userProfile.zipCode}"></td>
+        </tr>
     </table>
 </div>
 
