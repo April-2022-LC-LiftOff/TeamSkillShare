@@ -4,8 +4,10 @@ package com.skills.skills.controllers;
 import com.skills.skills.data.EventRepository;
 import com.skills.skills.data.SkillsRepository;
 import com.skills.skills.data.UserRepository;
+import com.skills.skills.models.EventData;
 import com.skills.skills.models.SkillData;
 import com.skills.skills.models.UserData;
+import com.skills.skills.models.event.Event;
 import com.skills.skills.models.skill.Skill;
 import com.skills.skills.models.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,13 +57,16 @@ public class SearchController {
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         Iterable<User> users;
         Iterable<Skill> skills;
+        Iterable<Event> events;
         if(searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
             users = userRepository.findAll();
             skills = skillsRepository.findAll();
+            events = eventRepository.findAll();
 
         }else{
             users = UserData.findByColumnAndValue(searchType,searchTerm,userRepository.findAll());
             skills = SkillData.findBYColumnAndValue(searchType,searchTerm,skillsRepository.findAll());
+            events = EventData.findBYColumnAndValue(searchType,searchTerm,eventRepository.findAll());
         }
 //        if(searchTerm.toLowerCase().equals("all"))
         model.addAttribute("columns",columnChoices);
@@ -69,6 +74,8 @@ public class SearchController {
         model.addAttribute("users", users);
         model.addAttribute("title", "Skill with " + columnChoices.get(searchType) + ": " + searchTerm);
         model.addAttribute("skills", skills);
+        model.addAttribute("title", "Event with " + columnChoices.get(searchType) + ": " + searchTerm);
+        model.addAttribute("events", events);
 
         return "search";
     }
