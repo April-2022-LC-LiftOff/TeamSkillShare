@@ -32,7 +32,7 @@ public class SkillData {
     public static String getFieldValue(Skill skill, String attributeName) {
         String theValue;
 
-        if(attributeName.equals("Name")){
+        if(attributeName.equals("skillName")){
             theValue = skill.getName();
         }else{
             theValue = skill.getCatName().toString();
@@ -46,7 +46,7 @@ public class SkillData {
 
         ArrayList<Skill>skillResults = new ArrayList<>();
 
-        for(Skill skill :allSkills){
+        for(Skill skill : allSkills){
             if(skill.getName().toLowerCase().contains(value.toLowerCase())){
                 skillResults.add(skill);
 

@@ -58,8 +58,8 @@
         <td>
             <p>
                 User ID:
-                <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.id}"></a>
-                <!--               th:text="${user.userProfile.firstName} + '  ' + ${user.userProfile.lastName}"></a>-->
+                <a th:href="@{/users/view/{id}(id=${user.id})}" th:text="${user.id}" ></a>
+
             </p>
             <p>
                 User Name:
@@ -77,8 +77,31 @@
                 <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${skill.id}"></a>
             </p>
             <p>
+                Skill Name:
+                <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${skill.name}"></a>
+            </p>
+
+            <p>
                 Skill CatName:
                 <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${skill.catName}"></a>
+            </p>
+
+        </td>
+    </tr>
+
+    <tr th:each="skill : ${skills}">
+        <td>
+            <p>
+                Event ID:
+                <a th:href="@{/events/{id}(id=${event.id})}" th:text="${event.id}"></a>
+            </p>
+            <p>
+                Event Name:
+                <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${event.name}"></a>
+            </p>
+            <p>
+                Event Description:
+                <a th:href="@{/skills/{id}(id=${skill.id})}" th:text="${event.description}"></a>
             </p>
 
         </td>

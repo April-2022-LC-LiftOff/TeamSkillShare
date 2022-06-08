@@ -32,7 +32,8 @@ public class SearchController {
         //columnChoices.put("lastname", "LastName");
         columnChoices.put("skillname", "SkillName");
         columnChoices.put("categories name", "CatName");
-        //columnChoices.put("event description", "Event Description");
+        columnChoices.put("eventname", "EventName");
+        columnChoices.put("event description", "EventDescription");
     }
 
         @Autowired

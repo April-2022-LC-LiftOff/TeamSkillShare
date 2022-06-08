@@ -33,7 +33,7 @@ public class UserData {
     }
     public static String getFieldValue(User user, String attributeName){
         String theValue;
-        if(attributeName.equals("name")) {
+        if(attributeName.equals("username")) {
             theValue = user.getUsername();
 //        }else if(attributeName.equals("firstname")){
 //            theValue = user.getUserProfile().getFirstName();
