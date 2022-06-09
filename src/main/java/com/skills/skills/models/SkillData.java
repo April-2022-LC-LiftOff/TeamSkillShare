@@ -14,18 +14,19 @@ public class SkillData {
             return (ArrayList<Skill>) allSkills;
         }
 
-        if (column.equals("all")){
+        if (column.equals("skillname")){
             skillResults = findByValue(value, allSkills);
             return skillResults;
         }
 
-        for (Skill skill : allSkills) {
-            String aValue = getFieldValue(skill, column);
 
-            if(aValue != null && aValue.toLowerCase().contains(value.toLowerCase())){
-                skillResults.add(skill);
-            }
-        }
+//        for (Skill skill : allSkills) {
+//            String aValue = getFieldValue(skill, column);
+//
+//            if(aValue != null && aValue.toLowerCase().contains(value.toLowerCase())){
+//                skillResults.add(skill);
+//            }
+//        }
         return skillResults;
     }
 

@@ -13,6 +13,7 @@ import com.skills.skills.models.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,10 +33,10 @@ public class SearchController {
         columnChoices.put("username", "UserName");
         //columnChoices.put("firstname", "FirstName");
         //columnChoices.put("lastname", "LastName");
-        columnChoices.put("skillname", "SkillName");
-        columnChoices.put("categories name", "CatName");
-        columnChoices.put("eventname", "EventName");
-        columnChoices.put("event description", "EventDescription");
+        columnChoices.put("skillname", "Skill");
+//        columnChoices.put("categories name", "CatName");
+        columnChoices.put("eventname", "Event");
+//        columnChoices.put("event description", "EventDescription");
     }
 
         @Autowired
@@ -47,7 +48,7 @@ public class SearchController {
         @Autowired
         private EventRepository eventRepository;
 
-    @RequestMapping("")
+    @GetMapping("")
     public String search(Model model){
         model.addAttribute("columns", columnChoices);
         return "search";
